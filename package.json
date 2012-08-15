@@ -1,0 +1,34 @@
+{
+    "name": "grunt-umd",
+    "description": "Surrounds code with the universal module definition.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/lawrence/grunt-umd",
+    "author": {
+        "name": "Alex Lawrence",
+        "email": "info@alex-lawrence.com"
+    },
+    "contributors": [
+        {
+            "name": "Alex Lawrence",
+            "email": "info@alex-lawrence.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/lawrence/grunt-umd.git"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    ],
+    "main": "grunt.js",
+    "bin": "bin/grunt-umd",
+    "engines": {
+        "node": "*"
+    },
+    "devDependencies": {
+        "grunt": "~0.3.12"
+    }
+}

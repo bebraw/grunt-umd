@@ -1,0 +1,7 @@
+/**
+ * @license
+ * grunt-umd - Surrounds code with the universal module definition - version 0.1.0
+ * Copyright 2012, Alex Lawrence
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/MIT
+ */
