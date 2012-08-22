@@ -18,9 +18,9 @@ Then configure the task:
 grunt.initConfig({
    umd: {
        all: {
-           src: 'path/input.js',
+           src: 'path/to/input.js',
+           dest: 'path/to/output.js', // optional, if missing the src will be used
            objectToExport: 'library', // internal object that will be exported
-           dest: 'path/output.js', // optional, if missing output will the same as input
            amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
            globalAlias: 'alias', // optional, changes the name of the global variable
        }
