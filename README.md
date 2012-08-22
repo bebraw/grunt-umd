@@ -1,21 +1,35 @@
 # grunt-umd
 
-Surrounds code with the [universal module definition](https://github.com/umdjs/umd/).
+Grunt task to surround JavaScript code with the [universal module definition](https://github.com/umdjs/umd/).
 
-## Description
+## Usage
 
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-umd`
+Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-umd`
 
-Then add this line to your project's `grunt.js` gruntfile:
+Add the following line to your project's `grunt.js` gruntfile:
 
 ```javascript
 grunt.loadNpmTasks('grunt-umd');
 ```
 
-[grunt]: https://github.com/cowboy/grunt
-[getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md
+Then configure the task:
 
-## API
+```javascript
+grunt.initConfig({
+   umd: {
+       all: {
+           src: 'path/input.js',
+           objectToExport: 'library', // internal object that will be exported
+           dest: 'path/output.js', // optional, if missing output will the same as input
+           amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
+           globalAlias: 'alias', // optional, changes the name of the global variable
+       }
+   }
+});
+```
 
-_(Coming soon)_
+And finally use it:
 
+```bash
+grunt umd:all
+```
