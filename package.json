@@ -23,8 +23,7 @@
             "url": "http://www.opensource.org/licenses/MIT"
         }
     ],
-    "main": "grunt.js",
-    "bin": "bin/grunt-umd",
+    "main": "tasks/umd.js",
     "engines": {
         "node": "*"
     },
