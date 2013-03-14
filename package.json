@@ -2,7 +2,7 @@
     "name": "grunt-umd",
     "description": "Surrounds code with the universal module definition.",
     "version": "1.0.0",
-    "homepage": "https://github.com/lawrence/grunt-umd",
+    "homepage": "https://github.com/alexlawrence/grunt-umd",
     "author": {
         "name": "Alex Lawrence",
         "email": "info@alex-lawrence.com"
@@ -15,7 +15,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/lawrence/grunt-umd.git"
+        "url": "git://github.com/alexlawrence/grunt-umd.git"
     },
     "licenses": [
         {
