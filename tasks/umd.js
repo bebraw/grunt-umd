@@ -1,3 +1,4 @@
+var fs = require('fs');
 var extend = require('util')._extend;
 
 var handlebars = require('handlebars');
@@ -13,7 +14,9 @@ module.exports = function(grunt) {
             grunt.warn(error, 3);
         }
 
-        var tpl = handlebars.compile(grunt.file.read('./templates/umd.hbs'));
+        var tpl = handlebars.compile(fs.readFileSync('./templates/umd.hbs', {
+            encoding: 'utf8'
+        }));
         var code = grunt.file.read(this.data.src);
         var output = generateOutput(tpl, code, this.data);
 
