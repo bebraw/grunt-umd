@@ -40,11 +40,14 @@ var verifyArguments = function(options) {
 var generateOutput = function(template, code, options) {
     var ctx = extend({}, options);
     var deps = options.dependencies || [];
+    var amdDeps = options.amdDependencies || deps;
+    var cjsDeps = options.cjsDependencies || deps;
+    var globalDeps = options.globalDependencies || deps;
 
     ctx.dependencies = deps.join(', ');
-    ctx.amdDependencies = deps.map(wrap("'", "'")).join(', ');
-    ctx.cjsDependencies = deps.map(wrap("require('", "')")).join(', ');
-    ctx.globalDependencies = deps.map(wrap('root.')).join(', ');
+    ctx.amdDependencies = amdDeps.map(wrap("'", "'")).join(', ');
+    ctx.cjsDependencies = cjsDeps.map(wrap("require('", "')")).join(', ');
+    ctx.globalDependencies = globalDeps.map(wrap('root.')).join(', ');
     ctx.code = code;
 
     return template(ctx);

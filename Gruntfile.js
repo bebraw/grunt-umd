@@ -5,7 +5,8 @@ module.exports = function(grunt) {
             'default': {
                 src: 'demo/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.js',
-                dependencies: ['foo', 'bar'],
+                dependencies: ['foo', 'bar'], // optional
+                globalDependencies: ['foobar', 'bar'], // optional
                 objectToExport: 'demo',
                 globalAlias: 'demo'
             }
