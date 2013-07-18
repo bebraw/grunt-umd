@@ -5,13 +5,14 @@ module.exports = function(grunt) {
             'default': {
                 src: 'demo/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.js',
-                objectToExport: 'demo'
+                dependencies: ['foo', 'bar'],
+                objectToExport: 'demo',
+                globalAlias: 'demo'
             }
         }
     });
 
-    grunt.registerTask('refresh', ['umd']);
-    grunt.registerTask('default', ['refresh']);
+    grunt.registerTask('default', ['umd']);
 
     grunt.loadTasks('./tasks');
 };
