@@ -33,3 +33,7 @@ And finally use it:
 ```bash
 grunt umd:all
 ```
+
+## Demo
+
+Examine `Gruntfile.js`, install dependencies (`npm install`) and execute `grunt`. You should see some `/output`.
