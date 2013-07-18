@@ -16,15 +16,21 @@ Then configure the task:
 
 ```javascript
 grunt.initConfig({
-   umd: {
-       all: {
-           src: 'path/to/input.js',
-           dest: 'path/to/output.js', // optional, if missing the src will be used
-           objectToExport: 'library', // internal object that will be exported
-           amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
-           globalAlias: 'alias', // optional, changes the name of the global variable
-       }
-   }
+    umd: {
+        all: {
+            src: 'path/to/input.js',
+            dest: 'path/to/output.js', // optional, if missing the src will be used
+            objectToExport: 'library', // internal object that will be exported
+            amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
+            globalAlias: 'alias', // changes the name of the global variable
+            deps: { // optional
+                'default': ['foo', 'bar'],
+                amd: ['foobar', 'barbar'],
+                cjs: ['foo', 'barbar'],
+                global: ['foobar', 'bar']
+            }
+        }
+    }
 });
 ```
 
