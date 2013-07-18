@@ -39,10 +39,10 @@ var verifyArguments = function(options) {
 
 var generateOutput = function(template, code, options) {
     var ctx = extend({}, options);
-    var deps = options.dependencies || [];
-    var amdDeps = options.amdDependencies || deps;
-    var cjsDeps = options.cjsDependencies || deps;
-    var globalDeps = options.globalDependencies || deps;
+    var deps = options.deps['default'] || [];
+    var amdDeps = options.deps.amd || deps;
+    var cjsDeps = options.deps.cjs || deps;
+    var globalDeps = options.deps.global || deps;
 
     ctx.dependencies = deps.join(', ');
     ctx.amdDependencies = amdDeps.map(wrap("'", "'")).join(', ');
