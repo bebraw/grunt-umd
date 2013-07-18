@@ -3,7 +3,7 @@
         module.exports = factory({{{cjsDependencies}}});
     }
     else if(typeof define === 'function' && define.amd) {
-        define('{{amdModuleId}}', [{{{amdDependencies}}}], factory);
+        define({{#if amdModuleId}}'{{amdModuleId}}', {{/if}}[{{{amdDependencies}}}], factory);
     }
     else {
         root.{{globalAlias}} = factory({{{globalDependencies}}});
