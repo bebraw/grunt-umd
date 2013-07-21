@@ -1,33 +1,40 @@
 {
-    "name": "grunt-umd",
-    "description": "Surrounds code with the universal module definition.",
-    "version": "1.0.0",
-    "homepage": "https://github.com/alexlawrence/grunt-umd",
-    "author": {
-        "name": "Alex Lawrence",
-        "email": "info@alex-lawrence.com"
+  "name": "grunt-umd",
+  "description": "Surrounds code with the universal module definition.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/alexlawrence/grunt-umd",
+  "author": {
+    "name": "Alex Lawrence",
+    "email": "info@alex-lawrence.com"
+  },
+  "contributors": [
+    {
+      "name": "Alex Lawrence",
+      "email": "info@alex-lawrence.com"
     },
-    "contributors": [
-        {
-            "name": "Alex Lawrence",
-            "email": "info@alex-lawrence.com"
-        }
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/alexlawrence/grunt-umd.git"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://www.opensource.org/licenses/MIT"
-        }
-    ],
-    "main": "tasks/umd.js",
-    "engines": {
-        "node": "*"
-    },
-    "devDependencies": {
-        "grunt": "~0.3.12"
+    {
+      "name": "Juho Vepsalainen",
+      "email": "bebraw@gmail.com"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexlawrence/grunt-umd.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "tasks/umd.js",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "grunt": ">=0.3.12"
+  },
+  "dependencies": {
+    "handlebars": "~1.0.12"
+  }
 }
