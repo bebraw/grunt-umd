@@ -11,11 +11,18 @@ module.exports = function(grunt) {
                 },
                 objectToExport: 'demo',
                 globalAlias: 'demo'
+            },
+            'nodeps': {
+                src: 'demo/<%= pkg.name %>.js',
+                dest: 'output/<%= pkg.name %>.js',
+                objectToExport: 'nodeps',
+                globalAlias: 'nodeps'
             }
         }
     });
 
     grunt.registerTask('default', ['umd']);
+    grunt.registerTask('nodeps', ['umd:nodeps']);
 
     grunt.loadTasks('./tasks');
 };

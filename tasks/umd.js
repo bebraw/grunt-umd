@@ -41,6 +41,9 @@ var verifyArguments = function(options) {
 
 var generateOutput = function(template, code, options) {
     var ctx = extend({}, options);
+
+    options.deps = options.deps || {};
+
     var deps = options.deps['default'] || [];
     var amdDeps = options.deps.amd || deps;
     var cjsDeps = options.deps.cjs || deps;
