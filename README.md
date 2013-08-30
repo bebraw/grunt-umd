@@ -42,6 +42,17 @@ And finally use it:
 grunt umd:all
 ```
 
+## Templates
+
+The following predefined templates are available:
+
+* `umd` - the default template; the template is based on [umd/returnExports.js](https://github.com/umdjs/umd/blob/master/returnExports.js)
+* `unit` - the template that can be helpful to wrap standalone CommonJS/Node modules; it is slightly modified version of `umd` template
+
+The template that should be applied can be specified by `template` option (e.g. `'umd'` or `'unit'`).
+You can create and use your own template (see predefined templates for examples). 
+The path to the template file should be set relative to Gruntfile.
+
 ## Demo
 
 Examine `Gruntfile.js`, install dependencies (`npm install`) and execute `grunt`. You should see some `/output`.
