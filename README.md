@@ -20,6 +20,8 @@ grunt.initConfig({
         all: {
             src: 'path/to/input.js',
             dest: 'path/to/output.js', // optional, if missing the src will be used
+            template: 'path/to/template.hbs', // optional; a template from templates subdir can be specified by name (e.g. 'umd');
+                // if missing the templates/umd.hbs file will be used
             objectToExport: 'library', // internal object that will be exported
             amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
             globalAlias: 'alias', // changes the name of the global variable
@@ -39,6 +41,17 @@ And finally use it:
 ```bash
 grunt umd:all
 ```
+
+## Templates
+
+The following predefined templates are available:
+
+* `umd` - the default template; the template is based on [umd/returnExports.js](https://github.com/umdjs/umd/blob/master/returnExports.js)
+* `unit` - the template that can be helpful to wrap standalone CommonJS/Node modules; it is slightly modified version of `umd` template
+
+The template that should be applied can be specified by `template` option (e.g. `'umd'` or `'unit'`).
+You can create and use your own template (see predefined templates for examples). 
+The path to the template file should be set relative to Gruntfile.
 
 ## Demo
 
