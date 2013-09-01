@@ -7,19 +7,40 @@ var handlebars = require('handlebars');
 module.exports = function(grunt) {
 
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.', function() {
+        var file = grunt.file;
+        var options = this.data;
         try{
-            verifyArguments(this.data);
+            verifyArguments(options);
         }
         catch (error) {
             grunt.warn(error, 3);
         }
 
-        var tplPath = path.join(__dirname, '..', 'templates', 'umd.hbs');
-        var tpl = handlebars.compile(grunt.file.read(tplPath));
-        var code = grunt.file.read(this.data.src);
-        var output = generateOutput(tpl, code, this.data);
+        var tplPath;
+        var isFile = file.isFile;
+        var template = options.template;
+        if (template) {
+            if (isFile(template)) {
+                tplPath = template;
+            }
+            else {
+                tplPath = path.join(__dirname, '..', 'templates', template + '.hbs');
+                if (!isFile(tplPath)) {
+                    tplPath = path.join(__dirname, '..', 'templates', template);
+                    if (!isFile(tplPath)) {
+                        grunt.warn('Cannot find template file "' + template + '".', 3);
+                    }
+                }
+            }
+        }
+        else {
+            tplPath = path.join(__dirname, '..', 'templates', 'umd.hbs');
+        }
+        var tpl = handlebars.compile(file.read(tplPath));
+        var code = file.read(options.src);
+        var output = generateOutput(tpl, code, options);
 
-        grunt.file.write(this.data.dest || this.data.src, output);
+        file.write(options.dest || options.src, output);
         return true;
     });
 
