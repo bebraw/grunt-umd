@@ -9,6 +9,6 @@
         {{#if globalAlias}}root.{{globalAlias}} = {{/if}}factory({{{globalDependencies}}});
     }
 }(this, function({{dependencies}}) {
-{{{code}}}
-    return {{objectToExport}};
+{{{code}}}{{#if objectToExport}}
+    return {{objectToExport}};{{/if}}
 }));
