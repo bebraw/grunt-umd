@@ -50,10 +50,6 @@ var verifyArguments = function(options) {
     if (!options.src) {
         throw new Error("Missing source file (src).");
     }
-
-    if (!options.objectToExport) {
-        throw new Error("Missing name of object to export (objectToExport).");
-    }
 };
 
 var generateOutput = function(template, code, options) {

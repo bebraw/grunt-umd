@@ -22,7 +22,7 @@ grunt.initConfig({
             dest: 'path/to/output.js', // optional, if missing the src will be used
             template: 'path/to/template.hbs', // optional; a template from templates subdir can be specified by name (e.g. 'umd');
                 // if missing the templates/umd.hbs file will be used
-            objectToExport: 'library', // internal object that will be exported
+            objectToExport: 'library', // optional, internal object that will be exported
             amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
             globalAlias: 'alias', // optional, changes the name of the global variable
             deps: { // optional

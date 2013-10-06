@@ -22,6 +22,11 @@ module.exports = function(grunt) {
                 src: 'demo/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.noglobalalias.js',
                 objectToExport: 'noglobalalias'
+            },
+            'noobjecttoexport': {
+                src: 'demo/<%= pkg.name %>.js',
+                dest: 'output/<%= pkg.name %>.noobjecttoexport.js',
+                globalAlias: 'noobjecttoexport'
             }
         }
     });
@@ -29,6 +34,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['umd']);
     grunt.registerTask('nodeps', ['umd:nodeps']);
     grunt.registerTask('noglobalalias', ['umd:noglobalalias']);
+    grunt.registerTask('noobjecttoexport', ['umd:noobjecttoexport']);
 
     grunt.loadTasks('./tasks');
 };
