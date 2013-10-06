@@ -24,7 +24,7 @@ grunt.initConfig({
                 // if missing the templates/umd.hbs file will be used
             objectToExport: 'library', // internal object that will be exported
             amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
-            globalAlias: 'alias', // changes the name of the global variable
+            globalAlias: 'alias', // optional, changes the name of the global variable
             deps: { // optional
                 'default': ['foo', 'bar'],
                 amd: ['foobar', 'barbar'],

@@ -14,15 +14,21 @@ module.exports = function(grunt) {
             },
             'nodeps': {
                 src: 'demo/<%= pkg.name %>.js',
-                dest: 'output/<%= pkg.name %>.js',
+                dest: 'output/<%= pkg.name %>.nodeps.js',
                 objectToExport: 'nodeps',
                 globalAlias: 'nodeps'
+            },
+            'noglobalalias': {
+                src: 'demo/<%= pkg.name %>.js',
+                dest: 'output/<%= pkg.name %>.noglobalalias.js',
+                objectToExport: 'noglobalalias'
             }
         }
     });
 
     grunt.registerTask('default', ['umd']);
     grunt.registerTask('nodeps', ['umd:nodeps']);
+    grunt.registerTask('noglobalalias', ['umd:noglobalalias']);
 
     grunt.loadTasks('./tasks');
 };

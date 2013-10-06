@@ -6,7 +6,7 @@
         define({{#if amdModuleId}}'{{amdModuleId}}', {{/if}}[{{{amdDependencies}}}], factory);
     }
     else {
-        root.{{globalAlias}} = factory({{{globalDependencies}}});
+        {{#if globalAlias}}root.{{globalAlias}} = {{/if}}factory({{{globalDependencies}}});
     }
 }(this, function({{dependencies}}) {
 {{{code}}}
