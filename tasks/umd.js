@@ -54,10 +54,6 @@ var verifyArguments = function(options) {
     if (!options.objectToExport) {
         throw new Error("Missing name of object to export (objectToExport).");
     }
-
-    if (!options.globalAlias) {
-        throw new Error('Missing name of global alias (globalAlias)');
-    }
 };
 
 var generateOutput = function(template, code, options) {
