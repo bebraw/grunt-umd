@@ -21,16 +21,15 @@ module.exports = function(grunt) {
             'noglobalalias': {
                 src: 'demo/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.noglobalalias.js',
-                objectToExport: 'noglobalalias'
+                objectToExport: 'demo'
             },
             'noobjecttoexport': {
                 src: 'demo/<%= pkg.name %>.js',
-                dest: 'output/<%= pkg.name %>.noobjecttoexport.js',
-                globalAlias: 'noobjecttoexport'
+                dest: 'output/<%= pkg.name %>.noobjecttoexport.js'
             },
             'onlydest': {
                 src: 'demo/<%= pkg.name %>.js',
-                dest: 'output/<%= pkg.name %>.dest.js',
+                dest: 'output/<%= pkg.name %>.dest.js'
             }
         }
     });
