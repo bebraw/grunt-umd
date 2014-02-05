@@ -10,7 +10,8 @@ module.exports = function(grunt) {
                     global: ['foobar', 'bar'] // custom override
                 },
                 objectToExport: 'demo',
-                globalAlias: 'demo'
+                globalAlias: 'demo',
+                indent: '    '
             },
             'nodeps': {
                 src: 'demo/<%= pkg.name %>.js',

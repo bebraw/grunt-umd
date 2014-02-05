@@ -38,6 +38,13 @@ module.exports = function(grunt) {
         }
         var tpl = handlebars.compile(file.read(tplPath));
         var code = file.read(options.src);
+
+        if (options.indent) {
+            code = code.split(/\r?\n/g).map(function(line) {
+                return options.indent + line;
+            }).join(grunt.util.linefeed);
+        }
+
         var output = generateOutput(tpl, code, options);
 
         file.write(options.dest || options.src, output);
@@ -67,6 +74,7 @@ var generateOutput = function(template, code, options) {
     ctx.cjsDependencies = cjsDeps.map(wrap("require('", "')")).join(', ');
     ctx.globalDependencies = globalDeps.map(wrap('root.')).join(', ');
     ctx.code = code;
+    ctx.indent = options.indent;
 
     return template(ctx);
 };
