@@ -25,6 +25,7 @@ grunt.initConfig({
             objectToExport: 'library', // optional, internal object that will be exported
             amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
             globalAlias: 'alias', // optional, changes the name of the global variable
+            indent: '  ', // optional, indent source code
             deps: { // optional
                 'default': ['foo', 'bar'],
                 amd: ['foobar', 'barbar'],
@@ -50,7 +51,7 @@ The following predefined templates are available:
 * `unit` - the template that can be helpful to wrap standalone CommonJS/Node modules; it is slightly modified version of `umd` template
 
 The template that should be applied can be specified by `template` option (e.g. `'umd'` or `'unit'`).
-You can create and use your own template (see predefined templates for examples). 
+You can create and use your own template (see predefined templates for examples).
 The path to the template file should be set relative to Gruntfile.
 
 ## Demo
