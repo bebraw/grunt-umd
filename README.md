@@ -58,3 +58,7 @@ The path to the template file should be set relative to Gruntfile.
 ## Demo
 
 Examine `Gruntfile.js`, install dependencies (`npm install`) and execute `grunt`. You should see some `/output`.
+
+## License
+
+MIT. See LICENSE for more info.
