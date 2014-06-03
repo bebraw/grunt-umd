@@ -63,6 +63,17 @@ The path to the template file should be set relative to Gruntfile.
 
 You should see some `/output` after this. Study `Gruntfile.js` to understand how it generates.
 
+## Contributors
+
+* [Alex Lawrence](https://github.com/alexlawrence) - Project founder, previous maintainer
+* [Juho Vepsäläinen](https://github.com/bebraw) - Handlerbars fixes etc., current maintainer
+* [Stéphane Bachelier](https://github.com/stephanebachelier) - Code indentation option
+* [Milan Adamovsky](https://github.com/adamovsky) - Enhanced configurability and Rails assets pipeline support
+* [Brian J. Miller](https://github.com/brianjmiller) - Indent only non-empty lines
+* [Denis](https://github.com/gamtiq) - Add default value for objectToExport and template option support
+* [Boris Cherny](https://github.com/eighttrackmind) - Properly export module IDs containing dashes to browser globals
+* [Paulo Gaspar](https://github.com/paulogaspar7) - Fix GitHub user name at repo and homepage URLs
+
 ## License
 
 MIT. See LICENSE for more info.
