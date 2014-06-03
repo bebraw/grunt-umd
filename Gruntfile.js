@@ -31,7 +31,41 @@ module.exports = function(grunt) {
             'onlydest': {
                 src: 'demo/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.dest.js'
-            }
+            },
+            'rails': {
+                src: 'demo/<%= pkg.name %>.js',
+                dest: 'output/<%= pkg.name %>.rails.js',
+                template: 'umd+rails.hbs',
+                objectToExport: 'demo',
+                indent: '  ',
+                deps: {
+                    args : ['$', '_', 'Backbone'],
+                    'default': ['$', '_', 'Backbone'],
+                    amd: {
+                        indent: '      ',
+                        items: ['jquery', 'underscore', 'backbone'],
+                        prefix: '\"',
+                        separator: ',\n',
+                        suffix: '\"'
+                    },
+                    cjs: {
+                        indent: '      ',
+                        items: ['jquery', 'underscore', 'backbone'],
+                        prefix: 'require(\"',
+                        separator: ',\n',
+                        suffix: '\")'
+                    },
+                    global: {
+                        items: ['jQuery', '_', 'Backbone'],
+                    },
+                    pipeline: {
+                        indent: '',
+                        items : ['jquery', 'vendor/underscore-min', 'vendor/backbone-min'],
+                        prefix: '//= require ',
+                        separator: '\n',
+                    }
+                }
+             }
         }
     });
 
@@ -40,6 +74,7 @@ module.exports = function(grunt) {
     grunt.registerTask('noglobalalias', ['umd:noglobalalias']);
     grunt.registerTask('noobjecttoexport', ['umd:noobjecttoexport']);
     grunt.registerTask('onlydest', ['umd:onlydest']);
+    grunt.registerTask('rails', ['umd:rails']);
 
     grunt.loadTasks('./tasks');
 };

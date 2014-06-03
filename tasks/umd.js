@@ -1,14 +1,46 @@
+function extend(target, source) {
+    var prop;
+
+    for (prop in source)
+        if (prop in target && typeof target[prop] === "object")
+            extend(target[prop], source[prop]);
+        else
+            target[prop] = source[prop];
+
+    return target;
+}
+
+function handleBackwardCompatibility(options) {
+    var dependency,
+        dependencyType;
+
+    for (dependencyType in options.deps) {
+        if (dependencyType === "args" || dependencyType === "default")
+            continue;
+            
+        dependency = options.deps[dependencyType];
+        
+        if (isArray(dependency))
+            options.deps[dependencyType] = {
+                items : dependency
+            };
+    }
+
+    return options;
+}
+
 var path = require('path');
-var extend = require('util')._extend;
-
+var util = require('util');
+var isArray = util.isArray;
 var handlebars = require('handlebars');
-
 
 module.exports = function(grunt) {
 
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.', function() {
         var file = grunt.file;
         var options = this.data;
+        var tplPath;
+
         try{
             verifyArguments(options);
         }
@@ -16,7 +48,6 @@ module.exports = function(grunt) {
             grunt.warn(error, 3);
         }
 
-        var tplPath;
         var isFile = file.isFile;
         var template = options.template;
         if (template) {
@@ -41,7 +72,6 @@ module.exports = function(grunt) {
 
         if (options.indent) {
             code = code.split(/\r?\n/g).map(function(line) {
-                if (line === '') return line;
                 return options.indent + line;
             }).join(grunt.util.linefeed);
         }
@@ -54,30 +84,72 @@ module.exports = function(grunt) {
 
 };
 
-var verifyArguments = function(options) {
-    if (!options.src) {
-        throw new Error("Missing source file (src).");
-    }
-};
-
 var generateOutput = function(template, code, options) {
     var ctx = extend({}, options);
 
-    options.deps = options.deps || {};
+    options = handleBackwardCompatibility(options);
 
-    var deps = options.deps['default'] || [];
-    var amdDeps = options.deps.amd || deps;
-    var cjsDeps = options.deps.cjs || deps;
-    var globalDeps = options.deps.global || deps;
+    options.deps = extend(getDefaults(options) || {}, options.deps);
 
-    ctx.dependencies = deps.join(', ');
-    ctx.amdDependencies = amdDeps.map(wrap("'", "'")).join(', ');
-    ctx.cjsDependencies = cjsDeps.map(wrap("require('", "')")).join(', ');
-    ctx.globalDependencies = globalDeps.map(wrap('root.')).join(', ');
+    var defaultIndent = options.indent || '  ',
+        deps = options.deps['default'] ? options.deps['default'] || options.deps['default'].items || [] : [],
+        dependency,
+        dependencyType,
+        items,
+        prefix,
+        separator,
+        suffix;
+
+    for (dependencyType in options.deps) {
+        dependency = options.deps[dependencyType];
+        indent = typeof dependency.indent !== "undefined" ? dependency.indent : defaultIndent;
+        items = isArray(dependency) ? dependency : dependency.items || deps;
+        prefix = dependency.prefix || '';
+        separator = dependency.separator || ', ';
+        suffix = dependency.suffix || '';
+        ctx[dependencyType + 'Dependencies'] = items.map(wrap(prefix, suffix)).join(separator + indent);
+    }
+
+    ctx.dependencies = (options.deps.args || deps).join(', ');
+
     ctx.code = code;
     ctx.indent = options.indent;
 
     return template(ctx);
+};
+
+var getDefaults = function(options) {
+    var globalAlias = options.globalAlias;
+
+    return {
+        amd: {
+            indent: '      ',
+            items: [],
+            prefix: '\"',
+            separator: ',\n',
+            suffix: '\"'
+        },
+        cjs: {
+            indent: '      ',
+            items: [],
+            prefix: 'require(\"',
+            separator: ',\n',
+            suffix: '\")'
+        },
+        global: {
+            indent: '      ',
+            items: [],
+            prefix: globalAlias ? globalAlias + '.' : '',
+            separator: ',\n',
+            suffix: ''
+        }
+    };
+};
+
+var verifyArguments = function(options) {
+    if (!options.src) {
+        throw new Error("Missing source file (src).");
+    }
 };
 
 var wrap = function(pre, post) {
