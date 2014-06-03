@@ -1,11 +1,16 @@
+'use strict';
+
 function extend(target, source) {
     var prop;
 
-    for (prop in source)
-        if (prop in target && typeof target[prop] === "object")
+    for(prop in source) {
+        if(prop in target && typeof target[prop] === 'object') {
             extend(target[prop], source[prop]);
-        else
+        }
+        else {
             target[prop] = source[prop];
+        }
+    }
 
     return target;
 }
@@ -14,16 +19,18 @@ function handleBackwardCompatibility(options) {
     var dependency,
         dependencyType;
 
-    for (dependencyType in options.deps) {
-        if (dependencyType === "args" || dependencyType === "default")
+    for(dependencyType in options.deps) {
+        if(dependencyType === 'args' || dependencyType === 'default') {
             continue;
-            
+        }
+
         dependency = options.deps[dependencyType];
-        
-        if (isArray(dependency))
+
+        if(isArray(dependency)) {
             options.deps[dependencyType] = {
-                items : dependency
+                items: dependency
             };
+        }
     }
 
     return options;
@@ -81,7 +88,6 @@ module.exports = function(grunt) {
         file.write(options.dest || options.src, output);
         return true;
     });
-
 };
 
 var generateOutput = function(template, code, options) {
@@ -95,14 +101,15 @@ var generateOutput = function(template, code, options) {
         deps = options.deps['default'] ? options.deps['default'] || options.deps['default'].items || [] : [],
         dependency,
         dependencyType,
+        indent,
         items,
         prefix,
         separator,
         suffix;
 
-    for (dependencyType in options.deps) {
+    for(dependencyType in options.deps) {
         dependency = options.deps[dependencyType];
-        indent = typeof dependency.indent !== "undefined" ? dependency.indent : defaultIndent;
+        indent = typeof dependency.indent !== 'undefined'? dependency.indent: defaultIndent;
         items = isArray(dependency) ? dependency : dependency.items || deps;
         prefix = dependency.prefix || '';
         separator = dependency.separator || ', ';
@@ -147,8 +154,8 @@ var getDefaults = function(options) {
 };
 
 var verifyArguments = function(options) {
-    if (!options.src) {
-        throw new Error("Missing source file (src).");
+    if(!options.src) {
+        throw new Error('Missing source file (src).');
     }
 };
 
