@@ -1,9 +1,11 @@
+'use strict';
+
 module.exports = function(grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('../package.json'),
         umd: {
             'default': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.js',
                 deps: { // optional
                     'default': ['foo', 'bar'],
@@ -14,26 +16,26 @@ module.exports = function(grunt) {
                 indent: '    '
             },
             'nodeps': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.nodeps.js',
                 objectToExport: 'nodeps',
                 globalAlias: 'nodeps'
             },
             'noglobalalias': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.noglobalalias.js',
                 objectToExport: 'demo'
             },
             'noobjecttoexport': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.noobjecttoexport.js'
             },
             'onlydest': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.dest.js'
             },
             'rails': {
-                src: 'demo/<%= pkg.name %>.js',
+                src: 'js/<%= pkg.name %>.js',
                 dest: 'output/<%= pkg.name %>.rails.js',
                 template: 'umd+rails.hbs',
                 objectToExport: 'demo',
@@ -76,5 +78,5 @@ module.exports = function(grunt) {
     grunt.registerTask('onlydest', ['umd:onlydest']);
     grunt.registerTask('rails', ['umd:rails']);
 
-    grunt.loadTasks('./tasks');
+    grunt.loadTasks('../tasks');
 };
