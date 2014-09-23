@@ -79,6 +79,9 @@ module.exports = function(grunt) {
 
         if (options.indent) {
             code = code.split(/\r?\n/g).map(function(line) {
+                if (!line.trim()) {
+                    return '';
+                }
                 return options.indent + line;
             }).join(grunt.util.linefeed);
         }
