@@ -73,6 +73,7 @@ You should see some `/output` after this. Study `Gruntfile.js` to understand how
 * [Denis](https://github.com/gamtiq) - Add default value for objectToExport and template option support
 * [Boris Cherny](https://github.com/eighttrackmind) - Properly export module IDs containing dashes to browser globals
 * [Paulo Gaspar](https://github.com/paulogaspar7) - Fix GitHub user name at repo and homepage URLs
+* [tomyouds](https://github.com/tomyouds) - Ignore indent option for empty lines
 
 ## License
 
