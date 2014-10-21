@@ -45,7 +45,8 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.', function() {
         var file = grunt.file;
-        var options = this.data;
+        var data = extend({}, this.data);
+        var options = extend(data, this.options());
         var tplPath;
 
         try{
