@@ -1,7 +1,7 @@
 {
   "name": "grunt-umd",
   "description": "Surrounds code with the universal module definition.",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "homepage": "https://github.com/bebraw/grunt-umd",
   "author": {
     "name": "Alex Lawrence",
@@ -19,6 +19,10 @@
     {
       "name": "Milan Adamovsky",
       "email": "milan.adamovsky@gmail.com"
+    },
+    {
+      "name": "Christopher Hiller",
+      "email": "chiller@badwing.com"
     }
   ],
   "repository": {
