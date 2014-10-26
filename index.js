@@ -29,7 +29,7 @@ function verifyArguments(options) {
 
 var util = require('util');
 var isArray = util.isArray;
-var UMD = require('./umd-template');
+var UMD = require('libumd');
 
 module.exports = function(grunt) {
 

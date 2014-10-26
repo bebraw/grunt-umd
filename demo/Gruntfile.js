@@ -78,5 +78,5 @@ module.exports = function(grunt) {
     grunt.registerTask('onlydest', ['umd:onlydest']);
     grunt.registerTask('rails', ['umd:rails']);
 
-    grunt.loadTasks('../tasks');
+    grunt.loadTasks('../');
 };
