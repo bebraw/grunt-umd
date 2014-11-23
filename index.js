@@ -29,14 +29,14 @@ function verifyArguments(options) {
 
 var util = require('util');
 var isArray = util.isArray;
-var UMD = require('libumd');
+var umdify = require('libumd');
+var extend = require('xtend');
 
 module.exports = function(grunt) {
 
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.',
         function() {
             var file = grunt.file;
-            var extend = UMD.extend;
             var data = extend({}, this.data);
             var options = extend(data, this.options());
 
@@ -49,8 +49,7 @@ module.exports = function(grunt) {
             options = handleBackwardCompatibility(options);
 
             try {
-                var umd = new UMD(file.read(options.src), options);
-                file.write(options.dest || options.src, umd.generate());
+                file.write(options.dest || options.src, umdify(file.read(options.src), options));
             } catch (error) {
                 grunt.warn(error, 3);
             }

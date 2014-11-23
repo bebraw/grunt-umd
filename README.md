@@ -21,13 +21,13 @@ grunt.initConfig({
             options: {
                 src: 'path/to/input.js',
                 dest: 'path/to/output.js', // optional, if missing the src will be used
-                template: 'path/to/template.hbs', // optional, a template from templates subdir 
-                    // can be specified by name (e.g. 'umd'); if missing, the templates/umd.hbs 
-                    // file will be used
+                template: 'path/to/template.hbs', // optional, a template from templates subdir
+                    // can be specified by name (e.g. 'umd'); if missing, the templates/umd.hbs
+                    // file will be used from [libumd](https://github.com/bebraw/libumd)
                 objectToExport: 'library', // optional, internal object that will be exported
                 amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
                 globalAlias: 'alias', // optional, changes the name of the global variable
-                indent: '  ', // optional, indent source code
+                indent: 4, // optional (defaults to 2), indent source code. Accepts strings as well
                 deps: { // optional
                     'default': ['foo', 'bar'],
                     amd: ['foobar', 'barbar'],
@@ -77,6 +77,7 @@ You should see some `/output` after this. Study `Gruntfile.js` to understand how
 * [Boris Cherny](https://github.com/eighttrackmind) - Properly export module IDs containing dashes to browser globals
 * [Paulo Gaspar](https://github.com/paulogaspar7) - Fix GitHub user name at repo and homepage URLs
 * [tomyouds](https://github.com/tomyouds) - Ignore indent option for empty lines
+* [Rameş Aliyev](https://github.com/ramesaliyev) - Browserify example
 
 ## License
 

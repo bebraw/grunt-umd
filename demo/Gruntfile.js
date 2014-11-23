@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 },
                 objectToExport: 'demo',
                 globalAlias: 'demo',
-                indent: '    '
+                indent: 4
             },
             'nodeps': {
                 src: 'js/<%= pkg.name %>.js',
@@ -39,29 +39,29 @@ module.exports = function(grunt) {
                 dest: 'output/<%= pkg.name %>.rails.js',
                 template: 'umd+rails.hbs',
                 objectToExport: 'demo',
-                indent: '  ',
+                indent: 2,
                 deps: {
                     args : ['$', '_', 'Backbone'],
                     'default': ['$', '_', 'Backbone'],
                     amd: {
-                        indent: '      ',
+                        indent: 6,
                         items: ['jquery', 'underscore', 'backbone'],
-                        prefix: '\"',
+                        prefix: '\'',
                         separator: ',\n',
-                        suffix: '\"'
+                        suffix: '\''
                     },
                     cjs: {
-                        indent: '      ',
+                        indent: 6,
                         items: ['jquery', 'underscore', 'backbone'],
-                        prefix: 'require(\"',
+                        prefix: 'require(\'',
                         separator: ',\n',
-                        suffix: '\")'
+                        suffix: '\')'
                     },
                     global: {
                         items: ['jQuery', '_', 'Backbone'],
                     },
                     pipeline: {
-                        indent: '',
+                        indent: 0,
                         items : ['jquery', 'vendor/underscore-min', 'vendor/backbone-min'],
                         prefix: '//= require ',
                         separator: '\n',
@@ -69,32 +69,32 @@ module.exports = function(grunt) {
                 }
             },
             returnExportsGlobal: {
-                src             : "js/<%= pkg.name %>.js",
-                dest            : "output/<%= pkg.name %>.returnExportsGlobal.js",
-                template        : "returnExportsGlobal.hbs",
-                objectToExport  : "__",
-                globalAlias     : "__",
-                indent          : "    ",
+                src             : 'js/<%= pkg.name %>.js',
+                dest            : 'output/<%= pkg.name %>.returnExportsGlobal.js',
+                template        : 'returnExportsGlobal',
+                objectToExport  : '__',
+                globalAlias     : '__',
+                indent          : 4,
                 deps            : {
-                    args        : ["_"],
-                    "default"   : ["_"],
+                    args        : ['_'],
+                    'default'   : ['_'],
                     amd         : {
-                        indent      : "      ",
-                        items       : ["lodash"],
-                        prefix      : "\"",
-                        separator   : ",\n",
-                        suffix      : "\""
+                        indent      : 6,
+                        items       : ['lodash'],
+                        prefix      : '\'',
+                        separator   : ',\n',
+                        suffix      : '\''
                     },
                     cjs         : {
-                        indent      : "      ",
-                        items       : ["lodash"],
-                        prefix      : "require(\"",
-                        separator   : ",\n",
-                        suffix      : "\")"
+                        indent      : 6,
+                        items       : ['lodash'],
+                        prefix      : 'require(\'',
+                        separator   : ',\n',
+                        suffix      : '\')'
                     },
                     global      : {
-                        items: ["_"],
-                        prefix: ""
+                        items: ['_'],
+                        prefix: ''
                     }
                 }
             }
@@ -108,6 +108,6 @@ module.exports = function(grunt) {
     grunt.registerTask('onlydest', ['umd:onlydest']);
     grunt.registerTask('rails', ['umd:rails']);
     grunt.registerTask('returnExportsGlobal', ['umd:returnExportsGlobal']);
-    
+
     grunt.loadTasks('../');
 };
