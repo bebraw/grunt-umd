@@ -67,7 +67,37 @@ module.exports = function(grunt) {
                         separator: '\n',
                     }
                 }
-             }
+            },
+            returnExportsGlobal: {
+                src             : "js/<%= pkg.name %>.js",
+                dest            : "output/<%= pkg.name %>.returnExportsGlobal.js",
+                template        : "returnExportsGlobal.hbs",
+                objectToExport  : "__",
+                globalAlias     : "__",
+                indent          : "    ",
+                deps            : {
+                    args        : ["_"],
+                    "default"   : ["_"],
+                    amd         : {
+                        indent      : "      ",
+                        items       : ["lodash"],
+                        prefix      : "\"",
+                        separator   : ",\n",
+                        suffix      : "\""
+                    },
+                    cjs         : {
+                        indent      : "      ",
+                        items       : ["lodash"],
+                        prefix      : "require(\"",
+                        separator   : ",\n",
+                        suffix      : "\")"
+                    },
+                    global      : {
+                        items: ["_"],
+                        prefix: ""
+                    }
+                }
+            }
         }
     });
 
@@ -77,6 +107,7 @@ module.exports = function(grunt) {
     grunt.registerTask('noobjecttoexport', ['umd:noobjecttoexport']);
     grunt.registerTask('onlydest', ['umd:onlydest']);
     grunt.registerTask('rails', ['umd:rails']);
-
+    grunt.registerTask('returnExportsGlobal', ['umd:returnExportsGlobal']);
+    
     grunt.loadTasks('../');
 };
