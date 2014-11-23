@@ -70,7 +70,7 @@ module.exports = function(grunt) {
             },
             returnExportsGlobal: {
                 src             : "js/<%= pkg.name %>.js",
-                dest            : "output/<%= pkg.name %>.rails.js",
+                dest            : "output/<%= pkg.name %>.returnExportsGlobal.js",
                 template        : "returnExportsGlobal.hbs",
                 objectToExport  : "__",
                 globalAlias     : "__",
