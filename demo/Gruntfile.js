@@ -109,5 +109,5 @@ module.exports = function(grunt) {
     grunt.registerTask('rails', ['umd:rails']);
     grunt.registerTask('returnExportsGlobal', ['umd:returnExportsGlobal']);
 
-    grunt.loadTasks('../');
+    grunt.loadTasks('../tasks');
 };

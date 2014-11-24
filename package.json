@@ -35,6 +35,7 @@
       "url": "http://www.opensource.org/licenses/MIT"
     }
   ],
+  "main": "tasks/umd.js",
   "engines": {
     "node": "*"
   },
