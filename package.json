@@ -43,7 +43,7 @@
     "grunt": ">=0.3.12"
   },
   "dependencies": {
-    "libumd": "^0.3.2",
+    "libumd": "^0.4.0",
     "xtend": "^4.0.0"
   }
 }
