@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON('../package.json'),
+        pkg: grunt.file.readJSON('../../package.json'),
         umd: {
             'default': {
                 src: 'js/<%= pkg.name %>.js',
@@ -109,5 +109,5 @@ module.exports = function(grunt) {
     grunt.registerTask('rails', ['umd:rails']);
     grunt.registerTask('returnExportsGlobal', ['umd:returnExportsGlobal']);
 
-    grunt.loadTasks('../tasks');
+    grunt.loadTasks('../../tasks');
 };

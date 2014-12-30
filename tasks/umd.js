@@ -27,13 +27,13 @@ function verifyArguments(options) {
     }
 }
 
+var path = require('path');
 var util = require('util');
 var isArray = util.isArray;
 var umdify = require('libumd');
 var extend = require('xtend');
 
 module.exports = function(grunt) {
-
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.',
         function() {
             var file = grunt.file;
@@ -49,7 +49,21 @@ module.exports = function(grunt) {
             options = handleBackwardCompatibility(options);
 
             try {
-                file.write(options.dest || options.src, umdify(file.read(options.src), options));
+                var inputFiles = file.expand(options.src);
+                var destination = options.dest || options.src;
+
+                inputFiles.forEach(function(inputFile) {
+                    var dest;
+
+                    if(path.extname(destination) === '.js') {
+                        dest = destination;
+                    }
+                    else {
+                        dest = path.join(destination, inputFile);
+                    }
+
+                    file.write(dest, umdify(file.read(inputFile), options));
+                });
             } catch (error) {
                 grunt.warn(error, 3);
             }
