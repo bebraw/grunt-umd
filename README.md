@@ -28,6 +28,7 @@ grunt.initConfig({
                 amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
                 globalAlias: 'alias', // optional, changes the name of the global variable
                 indent: 4, // optional (defaults to 2), indent source code. Accepts strings as well
+                separator: ',', // optional (default to ',\n'), separator between dependencies
                 deps: { // optional
                     'default': ['foo', 'bar'],
                     amd: ['foobar', 'barbar'],
