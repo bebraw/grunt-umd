@@ -1,37 +1,12 @@
 'use strict';
 
-function handleBackwardCompatibility(options) {
-    var dependency,
-        dependencyType;
-
-    for(dependencyType in options.deps) {
-        if(dependencyType === 'args' || dependencyType === 'default') {
-            continue;
-        }
-
-        dependency = options.deps[dependencyType];
-
-        if(isArray(dependency)) {
-            options.deps[dependencyType] = {
-                items: dependency
-            };
-        }
-    }
-
-    return options;
-}
-
-function verifyArguments(options) {
-    if (!options.src) {
-        throw new Error('Missing source file (src).');
-    }
-}
-
 var path = require('path');
 var util = require('util');
 var isArray = util.isArray;
+
 var umdify = require('libumd');
 var extend = require('xtend');
+
 
 module.exports = function(grunt) {
     grunt.registerMultiTask('umd', 'Surrounds code with the universal module definition.',
@@ -69,3 +44,30 @@ module.exports = function(grunt) {
             }
         });
 };
+
+function verifyArguments(options) {
+    if (!options.src) {
+        throw new Error('Missing source file (src).');
+    }
+}
+
+function handleBackwardCompatibility(options) {
+    var dependency,
+        dependencyType;
+
+    for(dependencyType in options.deps) {
+        if(dependencyType === 'args' || dependencyType === 'default') {
+            continue;
+        }
+
+        dependency = options.deps[dependencyType];
+
+        if(isArray(dependency)) {
+            options.deps[dependencyType] = {
+                items: dependency
+            };
+        }
+    }
+
+    return options;
+}
