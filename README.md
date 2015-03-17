@@ -27,7 +27,6 @@ grunt.initConfig({
                 objectToExport: 'library', // optional, internal object that will be exported
                 amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
                 globalAlias: 'alias', // optional, changes the name of the global variable
-                indent: 4, // optional (defaults to 2), indent source code. Accepts strings as well
                 deps: { // optional, `default` is used as a fallback for rest!
                     'default': ['foo', 'bar'],
                     amd: ['foobar', 'barbar'],
@@ -46,6 +45,8 @@ And finally use it:
 grunt umd:all
 ```
 
+> Note! If you want to indent the output, consider using some other plugin for that. The output `grunt-umd` gives is functional but not entirely aesthetic.
+
 ## Templates
 
 The following predefined [Handlebars](http://handlebarsjs.com/)-templates are available:
@@ -62,7 +63,8 @@ The path to the template file should be set relative to Gruntfile.
 
 1. Install dependencies - `npm install`
 2. Go to demo - `cd demo`
-3. Execute demo - `grunt`
+3. Go to some demo directory - `cd <demo directory>`
+4. Execute demo - `grunt`
 
 You should see some `/output` after this. Study `Gruntfile.js` to understand how it generates.
 
