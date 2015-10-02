@@ -31,7 +31,7 @@ grunt.initConfig({
                     'default': ['foo', 'bar'],
                     amd: ['foobar', 'barbar'],
                     cjs: ['foo', 'barbar'],
-                    global: ['foobar', 'bar']
+                    global: ['foobar', {depName: 'param'}]
                 }
             }
         }
