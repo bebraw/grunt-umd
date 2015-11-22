@@ -80,6 +80,7 @@ You should see some `/output` after this. Study `Gruntfile.js` to understand how
 * [Paulo Gaspar](https://github.com/paulogaspar7) - Fix GitHub user name at repo and homepage URLs
 * [tomyouds](https://github.com/tomyouds) - Ignore indent option for empty lines
 * [Rameş Aliyev](https://github.com/ramesaliyev) - Browserify example
+* [Daniel Koch](https://github.com/dak0rn) - Fixed link to UMD template
 
 ## License
 
