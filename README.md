@@ -51,7 +51,7 @@ grunt umd:all
 
 The following predefined [Handlebars](http://handlebarsjs.com/)-templates are available:
 
-* `umd` - the default template; the template is based on [umd/returnExports.js](https://github.com/umdjs/umd/blob/master/returnExports.js)
+* `umd` - the default template; the template is based on [umd/returnExports.js](https://github.com/umdjs/umd/blob/master/templates/returnExports.js)
 * `unit` - the template that can be helpful to wrap standalone CommonJS/Node modules; it is slightly modified version of `umd` template;
     if `objectToExport` option is not specified then `module.exports` value will be used by default
 
