@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         umd: {
             'default': {
                 src: 'js/*.js',
-                dest: 'output',
+                dest: 'output', // optional, the src files will be overwritten if omitted
                 objectToExport: 'demo',
                 globalAlias: 'demo',
                 indent: 4

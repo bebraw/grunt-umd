@@ -25,10 +25,10 @@ module.exports = function(grunt) {
 
             try {
                 var inputFiles = file.expand(options.src);
-                var destination = options.dest || options.src;
 
                 inputFiles.forEach(function(inputFile) {
-                    var dest;
+                    var destination = options.dest || '.',
+                        dest;
 
                     if(path.extname(destination) === '.js') {
                         dest = destination;
