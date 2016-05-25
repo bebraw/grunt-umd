@@ -81,6 +81,7 @@ You should see some `/output` after this. Study `Gruntfile.js` to understand how
 * [tomyouds](https://github.com/tomyouds) - Ignore indent option for empty lines
 * [Rameş Aliyev](https://github.com/ramesaliyev) - Browserify example
 * [Daniel Koch](https://github.com/dak0rn) - Fixed link to UMD template
+* [Louis Ameline](https://github.com/louisameline) - Made the `dest` property optional
 
 ## License
 
