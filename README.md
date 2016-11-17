@@ -4,9 +4,9 @@ Grunt task to surround JavaScript code with the [universal module definition](ht
 
 ## Usage
 
-Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-umd`
+Install this Grunt plugin next to your project's Gruntfile with: `npm install grunt-umd`
 
-Add the following line to your project's `grunt.js` gruntfile:
+Add the following line to your project's Gruntfile:
 
 ```javascript
 grunt.loadNpmTasks('grunt-umd');
@@ -16,26 +16,30 @@ Then configure the task:
 
 ```javascript
 grunt.initConfig({
-    umd: {
-        all: {
-            options: {
-                src: 'path/to/input.js',
-                dest: 'path/to/output.js', // optional, if missing the src will be used
-                template: 'path/to/template.hbs', // optional, a template from templates subdir
-                    // can be specified by name (e.g. 'umd'); if missing, the templates/umd.hbs
-                    // file will be used from [libumd](https://github.com/bebraw/libumd)
-                objectToExport: 'library', // optional, internal object that will be exported
-                amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
-                globalAlias: 'alias', // optional, changes the name of the global variable
-                deps: { // optional, `default` is used as a fallback for rest!
-                    'default': ['foo', 'bar'],
-                    amd: ['foobar', 'barbar'],
-                    cjs: ['foo', 'barbar'],
-                    global: ['foobar', {depName: 'param'}]
-                }
-            }
+  umd: {
+    all: {
+      options: {
+        src: 'path/to/input.js',
+        dest: 'path/to/output.js', // optional, if missing the src will be used
+
+        // optional, a template from templates subdir
+        // can be specified by name (e.g. 'umd'); if missing, the templates/umd.hbs
+        // file will be used from [libumd](https://github.com/bebraw/libumd)
+        template: 'path/to/template.hbs',
+
+        objectToExport: 'library', // optional, internal object that will be exported
+        amdModuleId: 'id', // optional, if missing the AMD module will be anonymous
+        globalAlias: 'alias', // optional, changes the name of the global variable
+
+        deps: { // optional, `default` is used as a fallback for rest!
+          'default': ['foo', 'bar'],
+          amd: ['foobar', 'barbar'],
+          cjs: ['foo', 'barbar'],
+          global: ['foobar', {depName: 'param'}]
         }
+      }
     }
+  }
 });
 ```
 
