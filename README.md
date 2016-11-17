@@ -82,6 +82,7 @@ You should see some `/output` after this. Study `Gruntfile.js` to understand how
 * [Rameş Aliyev](https://github.com/ramesaliyev) - Browserify example
 * [Daniel Koch](https://github.com/dak0rn) - Fixed link to UMD template
 * [Louis Ameline](https://github.com/louisameline) - Made the `dest` property optional
+* [@timeiscoffee](https://github.com/timeiscoffee) - Updated `libumd` version. #35
 
 ## License
 
