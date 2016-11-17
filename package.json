@@ -1,7 +1,7 @@
 {
   "name": "grunt-umd",
   "description": "Surrounds code with the universal module definition.",
-  "version": "2.3.6",
+  "version": "2.4.0",
   "homepage": "https://github.com/bebraw/grunt-umd",
   "author": {
     "name": "Juho Vepsalainen",
